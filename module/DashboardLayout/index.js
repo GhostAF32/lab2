@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material/styles';
-import Head from '../../components/Header/Head';
-import Body from '../../components/Main/Body';
+import Head from '../../components/Header/Header';
+import Body from '../../components/Main/Main';
 import Footer from '../../components/Footer/Footer';
 ReactDOM.createRoot(document.querySelector("#head")).render(
   <React.StrictMode>

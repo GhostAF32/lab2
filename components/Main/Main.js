@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GetBody() {
+function Main() {
   const divStyle = {
     color: 'white',
     fontSize: '30px',
@@ -16,4 +16,4 @@ function GetBody() {
   );
 }
 
-export default GetBody;
+export default Main;

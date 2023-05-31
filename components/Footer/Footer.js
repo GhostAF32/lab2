@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GetFooter() {
+function Footer() {
   const divStyle = {
     width: '100%',
     height: '150px',
@@ -15,4 +15,4 @@ function GetFooter() {
   );
 }
 
-export default GetFooter;
+export default Footer;
