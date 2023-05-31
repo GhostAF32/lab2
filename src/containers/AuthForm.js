@@ -1,0 +1,71 @@
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
+import { StyledEngineProvider } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import Aut from '../../src/containers/AuthForm';
+import TextField from '@mui/material/TextField';
+import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+export default function GetAuth() {
+    const {
+        register,
+        formState: { errors },
+        handleSubmit
+      } = useForm({
+        criteriaMode: "all"
+      });
+      const onSubmit = (data) => console.log(data);
+      return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h1>Log in</h1>
+           <TextField
+                label="Email"
+                type="text"
+                {...register("Email", {
+                    required: "Необходимо заполнить почту",
+                  })}
+            />
+            <ErrorMessage
+            errors={errors}
+            name="Email"
+            render={({ messages }) => {
+              console.log("messages", messages);
+              return messages
+                ? Object.entries(messages).map(([type, message]) => (
+                    <p key={type}>{message}</p>
+                  ))
+                : null;
+            }}
+          />
+          <p></p>
+            <TextField
+                label="Password"
+                type="password"
+                {...register("Password", {
+                    required: "Необходимо заполнить пароль",
+                  })}
+            />
+          <ErrorMessage
+            errors={errors}
+            name="Password"
+            render={({ messages }) => {
+              console.log("messages", messages);
+              return messages
+                ? Object.entries(messages).map(([type, message]) => (
+                    <p key={type}>{message}</p>
+                  ))
+                : null;
+            }}
+          />
+          <p></p>
+          <Button type="submit" style={{backgroundColor: '#145ea8'}}>Login</Button>
+        </form>
+      );
+  }
+  ReactDOM.createRoot(document.querySelector("#auth")).render(
+    <React.StrictMode>
+      <StyledEngineProvider injectFirst>
+        <Aut />
+      </StyledEngineProvider>
+    </React.StrictMode>
+  );
